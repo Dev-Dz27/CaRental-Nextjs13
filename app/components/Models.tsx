@@ -4,8 +4,29 @@ import Image from "next/image";
 import { AiFillCar, AiFillStar, AiFillTool } from "react-icons/ai";
 import { GiCarDoor } from "react-icons/gi";
 import { BsFillFuelPumpFill } from "react-icons/bs";
+import { useTogglersContext } from "../context/togglers";
+import { useInputValueContext } from "../context/inputValue";
+import { useCurrentValueContext } from "../context/currentValue";
 
 function Models() {
+  // Test
+const { setBookingModal,  } = useTogglersContext();
+const { bookingSelect, setBookingSelect, bookingDate, setBookingDate } =
+useInputValueContext();
+
+const { rentalFleet, setRentalFleet } = useCurrentValueContext();
+const carDetail = carDetails.find((data) => data.car === rentalFleet);
+
+const handleClick = (data) => {
+  setRentalFleet(data.car);
+  setBookingSelect({
+    ...bookingSelect,
+    "car-type": data.car,
+  });
+  setBookingModal(true);
+};
+
+// Test
   return (
     <section id="models-main">
       <div className="py-8 px-8 lg:px-48 lg:py-16 my-8">
@@ -89,12 +110,15 @@ function Models() {
                   <hr className="border border-lighter-grey" />
                 </div>
                 <div>
-                  <a
-                    href="/#booking"
+
+                              <button
                     className="block text-center bg-custom-orange p-3 font-bold text-white rounded shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear w-full"
-                  >
-                    Book Ride
-                  </a>
+
+              onClick={() => handleClick(data)}
+            >
+              Reserve Now
+              {/* Book Ride */}
+            </button>
                 </div>
               </div>
             </div>

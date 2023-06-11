@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AiFillInfoCircle,
   AiOutlineClose,
@@ -7,18 +7,66 @@ import {
 import { useTogglersContext } from "../context/togglers";
 import { useInputValueContext } from "../context/inputValue";
 import Image from "next/image";
-import { personalInfo } from "../data/input";
+import { bookingInputs, personalInfo } from "../data/input";
 import { IoLocationSharp } from "react-icons/io5";
 
 function BookingModal() {
   const { bookingModal, setBookingModal, bookingFields, setBookingFields } =
     useTogglersContext();
-  const { bookingSelect, bookingDate, clearBookingInputs } =
+  const { bookingSelect, bookingDate, clearBookingInputs, setBookingSelect } =
     useInputValueContext();
+
+  // Test
+  const [pickUpLocation, setPickUpLocation] = useState(
+    bookingSelect["pickup-location"]
+  );
+  const [dropOffLocation, setDropOffLocation] = useState(
+    bookingSelect["dropof-location"]
+  );
+  
+  const [showToast, setShowToast] = useState(false); // State variable for toast message
+
+function handleSubmit(e) {
+  e.preventDefault();
+
+  setBookingFields({ ...bookingFields, green: true });
+  setBookingSelect({
+    ...bookingSelect,
+    "pickup-location": pickUpLocation,
+    "dropof-location": dropOffLocation,
+  });
+
+  setShowToast(true); // Show the toast message
+
+  clearBookingInputs();
+
+  setTimeout(() => {
+    setShowToast(false); // Hide the toast message after 5 seconds
+    setBookingModal(false);
+  }, 5000); // 5000 milliseconds = 5 seconds
+}
+
+
+
+
+  // Test
 
   useEffect(() => {
     document.body.style.overflowY = bookingModal ? "hidden" : "auto";
   }, [bookingModal]);
+
+  function getSelectValue(id: string) {
+    switch (id) {
+      case "car-type":
+        return bookingSelect["car-type"];
+      case "pickup-location":
+        return bookingSelect["pickup-location"];
+      case "dropof-location":
+        return bookingSelect["dropof-location"];
+      default:
+        break;
+    }
+  }
 
   if (!bookingModal) return null;
 
@@ -97,11 +145,33 @@ function BookingModal() {
                   <h3 className="font-bold">Pick Up Location</h3>
                 </div>
                 <div>
-                  <p className="text-custom-grey">
-                    {bookingSelect["pickup-location"]}
-                  </p>
+                  {bookingInputs.select.slice(1, 2).map((data) => (
+                    <select
+                      key={data.htmlId}
+                      id={data.htmlId}
+                      className="p-2 border border-lightest-grey text-custom-grey rounded text-sm bg-transparent"
+                      onChange={(e) =>
+                        setBookingSelect({
+                          ...bookingSelect,
+                          [data.htmlId]: e.target.value,
+                        })
+                      }
+                      value={getSelectValue(data.htmlId)}
+                    >
+                      {data.options.map((data) => (
+                        <option
+                          key={data.id}
+                          value={data.option}
+                          className="m-8"
+                        >
+                          {data.option}
+                        </option>
+                      ))}
+                    </select>
+                  ))}
                 </div>
               </div>
+
               <div className="space-y-2">
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <span className="text-lg">
@@ -110,11 +180,33 @@ function BookingModal() {
                   <h3 className="font-bold">Drop Off Location</h3>
                 </div>
                 <div>
-                  <p className="text-custom-grey">
-                    {bookingSelect["dropof-location"]}
-                  </p>
+                  {bookingInputs.select.slice(2).map((data) => (
+                    <select
+                      key={data.htmlId}
+                      id={data.htmlId}
+                      className="p-2 border border-lightest-grey text-custom-grey rounded text-sm bg-transparent"
+                      onChange={(e) =>
+                        setBookingSelect({
+                          ...bookingSelect,
+                          [data.htmlId]: e.target.value,
+                        })
+                      }
+                      value={getSelectValue(data.htmlId)}
+                    >
+                      {data.options.map((data) => (
+                        <option
+                          key={data.id}
+                          value={data.option}
+                          className="m-8"
+                        >
+                          {data.option}
+                        </option>
+                      ))}
+                    </select>
+                  ))}
                 </div>
               </div>
+
             </div>
             <div>
               <div className="space-y-4">
@@ -139,7 +231,7 @@ function BookingModal() {
             </div>
           </div>
           <hr className="border border-custom-grey/25" />
-          <div className="px-8 py-10 space-y-8">
+          <form onSubmit={handleSubmit} className="px-8 py-10 space-y-8">
             <div>
               <h1 className="font-bold text-custom-orange text-lg">
                 PERSONAL INFORMATION
@@ -155,6 +247,7 @@ function BookingModal() {
                     <span className="text-custom-orange">*</span>
                   </label>
                   <input
+                  required
                     type={data.type}
                     placeholder={data.placeholder}
                     className="bg-lighter-grey p-3 text-sm placeholder:text-custom-grey rounded"
@@ -167,23 +260,32 @@ function BookingModal() {
               <div className="flex gap-2 items-center">
                 <input type="checkbox" id="cb" />
                 <label htmlFor="cb">
-                  Please send me the latest news and updates
+                Baby seat +(2€ / 400DA) per day
                 </label>
               </div>
             </div>
+            {showToast && (
+            <div className="flex items-center justify-between bg-light-green py-2 px-4 rounded text-dark-green font-medium">
+            <div>
+              <p>Successfully booked🎉</p>
+              <p className="text-sm font-extralight">
+                Our operators will check vehicle availability and confirm your
+                reservation and reach out to you.
+              </p>
+            </div>
+            </div>
+          )}
             <div className="lg:flex lg:justify-end">
               <button
+              type="submit"
                 className="bg-custom-orange w-full lg:w-fit shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear text-white p-3 font-bold rounded"
-                onClick={() => {
-                  setBookingModal(false);
-                  setBookingFields({ ...bookingFields, green: true });
-                  clearBookingInputs();
-                }}
+
               >
                 Reserve Now
               </button>
             </div>
-          </div>
+          </form>
+       
         </div>
       </div>
     </section>

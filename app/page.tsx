@@ -5,7 +5,6 @@ import MobileNavbar from "./components/MobileNavbar";
 import React from "react";
 import { TogglersProvider } from "./context/togglers";
 import Hero from "./components/Hero";
-import Booking from "./components/Booking";
 import { InputValueProvider } from "./context/inputValue";
 import BookingModal from "./components/BookingModal";
 import QuickEasy from "./components/QuickEasy";
@@ -32,8 +31,7 @@ function Home() {
             <MobileNavbar />
             <Hero />
             <ToTop />
-            <Booking />
-            <BookingModal />
+            <BookingModal  />
             <QuickEasy />
             <RentalFleet />
             <SaveBig />

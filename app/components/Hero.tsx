@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
@@ -36,32 +37,33 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-col lg:flex-row text-white font-bold gap-6">
-            <a
-              href="#booking"
+            <Link
+              href="/models"
               className="bg-custom-orange flex items-center gap-2 justify-center py-4 px-4 lg:px-8 shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear rounded border-2 border-custom-orange"
             >
               <span>Book Ride</span>
               <span className="text-xl">
                 <AiFillCheckCircle />
               </span>
-            </a>
-            <a
-              href="#booking"
+            </Link>
+            <Link
+              href="/models"
               className="bg-black flex items-center gap-2 justify-center py-4 px-4 lg:px-8 transition-all duration-300 ease-linear hover:bg-transparent hover:text-black rounded border-2 border-black"
             >
               <span>Learn More</span>
               <span className="text-xl">
                 <IoIosArrowForward />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
-        <a
-          href="#booking"
+        <Link
+          href="/models"
           className="absolute bottom-16 inset-x-1/2 text-3xl animate-bounce"
         >
           <IoIosArrowDown />
-        </a>
+        </Link>
+        
       </section>
     
   );
