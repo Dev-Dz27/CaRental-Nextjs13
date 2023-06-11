@@ -17,6 +17,7 @@ import Testimonials from "./components/Testimonials";
 import Faq from "./components/Faq";
 import DownloadApp from "./components/DownloadApp";
 import Footer from "./components/Footer";
+import BookingToast from "./components/BookingToast";
 
 function Home() {
   return (
@@ -32,6 +33,7 @@ function Home() {
             <Hero />
             <ToTop />
             <BookingModal  />
+            <BookingToast  />
             <QuickEasy />
             <RentalFleet />
             <SaveBig />

@@ -17,6 +17,10 @@ type TogglersContextType = {
   >;
   bookingModal: boolean;
   setBookingModal: React.Dispatch<React.SetStateAction<boolean>>;
+  // Test
+  bookingToast: boolean;
+  setBookingToast: React.Dispatch<React.SetStateAction<boolean>>;
+  // Test
   goUp: boolean;
   setGoUp: React.Dispatch<React.SetStateAction<boolean>>;
   showAnswer: {
@@ -43,6 +47,8 @@ const TogglersContext = React.createContext<TogglersContextType>({
   setBookingFields: () => {},
   bookingModal: false,
   setBookingModal: () => {},
+  bookingToast: false,
+  setBookingToast: () => {},
   goUp: false,
   setGoUp: () => {},
   showAnswer: { q1: false, q2: false, q3: false },
@@ -62,6 +68,7 @@ export const TogglersProvider = ({
     green: false,
   });
   const [bookingModal, setBookingModal] = useState(false);
+  const [bookingToast, setBookingToast] = useState(false);
   const [goUp, setGoUp] = useState(false);
   const [showAnswer, setShowAnswer] = useState({
     q1: false,
@@ -78,6 +85,8 @@ export const TogglersProvider = ({
         setBookingFields,
         bookingModal,
         setBookingModal,
+        bookingToast,
+        setBookingToast,
         goUp,
         setGoUp,
         showAnswer,

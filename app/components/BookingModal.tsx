@@ -11,7 +11,7 @@ import { bookingInputs, personalInfo } from "../data/input";
 import { IoLocationSharp } from "react-icons/io5";
 
 function BookingModal() {
-  const { bookingModal, setBookingModal, bookingFields, setBookingFields } =
+  const { bookingModal, setBookingModal,   setBookingToast, bookingFields, setBookingFields } =
     useTogglersContext();
   const { bookingSelect, bookingDate, clearBookingInputs, setBookingSelect } =
     useInputValueContext();
@@ -38,12 +38,13 @@ function handleSubmit(e) {
 
   setShowToast(true); // Show the toast message
 
-  clearBookingInputs();
+  // clearBookingInputs();
 
   setTimeout(() => {
     setShowToast(false); // Hide the toast message after 5 seconds
     setBookingModal(false);
-  }, 5000); // 5000 milliseconds = 5 seconds
+    setBookingToast(true);
+  }, 2500); // 5000 milliseconds = 5 seconds
 }
 
 

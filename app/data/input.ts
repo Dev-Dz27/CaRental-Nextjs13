@@ -37,8 +37,8 @@ export const bookingInputs = {
       label: { icon: IoLocationSharp, text: "Drop of Location" },
       placeholder: "Select your drop of location",
       options: [
-        { id: 1, option: "Oran" },
-        { id: 2, option: "Mostaganem" },
+        { id: 1, option: "Mostaganem" },
+        { id: 2, option: "Oran" },
         { id: 3, option: "Alger" },
         { id: 4, option: "Tlemcen" },
         { id: 5, option: "Constantine" },

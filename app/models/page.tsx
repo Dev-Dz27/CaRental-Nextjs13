@@ -13,6 +13,7 @@ import { InputValueProvider } from "../context/inputValue";
 import { CurrentValueProvider } from "../context/currentValue";
 import BookingModal from "../components/BookingModal";
 import Booking from "../components/Booking";
+import BookingToast from "../components/BookingToast";
 
 function page() {
   return (
@@ -25,6 +26,7 @@ function page() {
         <BannerHero htmlId="models-hero" page="Vehicle Models" />
         <Booking />
         <BookingModal />
+        <BookingToast />
         <ToTop />
         <Models />
         <GetTouch />
