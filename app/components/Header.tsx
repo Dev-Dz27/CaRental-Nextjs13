@@ -58,6 +58,7 @@ function Header() {
           <button
             className="text-3xl transition-all duration-300 ease-linear hover:text-custom-orange"
             onClick={() => setMobileNavbar(true)}
+            aria-label="Toggle Mobile Navigation"
           >
             <AiOutlineMenu />
           </button>

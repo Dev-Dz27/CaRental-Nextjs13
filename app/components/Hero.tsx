@@ -60,6 +60,7 @@ function Hero() {
         <Link
           href="/models"
           className="absolute bottom-16 inset-x-1/2 text-3xl animate-bounce"
+          aria-label="View Models"
         >
           <IoIosArrowDown />
         </Link>

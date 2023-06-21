@@ -22,7 +22,7 @@ function ScrollTop() {
           !goUp ? "-bottom-16" : "bottom-8 lg:bottom-16"
         } right-8 lg:right-16 bg-custom-orange p-1.5 text-3xl text-white transition-all duration-300 ease-linear z-10`}
       >
-        <IoIosArrowUp />
+        <IoIosArrowUp aria-label="Back to Top" />
       </a>
     </section>
   );

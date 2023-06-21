@@ -14,6 +14,7 @@ function Footer() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          title="Google Maps Embed"
         ></iframe>
       </div>
       <div className="bg-[#f8f8f8] px-8 lg:px-28 py-16 text-center grid grid-cols-1 lg:grid-cols-4 lg:text-left gap-20">
