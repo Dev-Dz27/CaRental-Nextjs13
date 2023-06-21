@@ -5,7 +5,7 @@ import React from "react";
 function DownloadApp() {
   return (
     <section id="download">
-      <div className="text-center lg:text-left lg:bg-[url('/images/download-bg.png')] lg:bg-no-repeat lg:bg-cover lg:bg-top py-8 lg:py-16">
+      <div className="text-center py-8 lg:text-left lg:bg-[url('/images/wedding-bg.png')] lg:bg-no-repeat lg:bg-cover lg:bg-top  lg:py-16">
         <div className="mb-16 mx-8 lg:mx-28 space-y-8 lg:space-y-10 lg:max-w-2xl">
           <div>
             <h1 className="text-[2.75rem] font-bold leading-tight">

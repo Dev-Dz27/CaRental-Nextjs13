@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { chooseUs } from "../data/content";
+import { chooseUs } from "@/data/content";
 
 function ChooseUs() {
   return (

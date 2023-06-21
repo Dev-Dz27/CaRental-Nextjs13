@@ -2,13 +2,9 @@
 
 import React from "react";
 import { TogglersProvider } from "../context/togglers";
-import Header from "../components/Header";
+import { BannerHero, Testimonials, GetTouch, Header } from "../components";
 import MobileNavbar from "../components/MobileNavbar";
-import BannerHero from "../components/BannerHero";
 import ToTop from "../components/ToTop";
-import Testimonials from "../components/Testimonials";
-import GetTouch from "../components/GetTouch";
-import Footer from "../components/Footer";
 
 function page() {
   return (
@@ -16,11 +12,11 @@ function page() {
       <main>
         <Header />
         <MobileNavbar />
+
         <BannerHero htmlId="testimonials-hero" page="Testimonials" />
         <ToTop />
         <Testimonials />
         <GetTouch />
-        <Footer />
       </main>
     </TogglersProvider>
   );

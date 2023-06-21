@@ -10,8 +10,13 @@ import Image from "next/image";
 function BookingToast() {
   const { bookingToast, setBookingToast,  } =
     useTogglersContext();
-  const { bookingSelect, } =
+  const { bookingSelect, clearBookingInputs} =
     useInputValueContext();
+
+    function handleClose() {
+      setBookingToast(false)
+      clearBookingInputs()
+    }
 
   // Test
   
@@ -31,7 +36,7 @@ function BookingToast() {
         <div className="absolute bg-white inset-y-0 inset-x-0 lg:inset-y-16 lg:inset-x-80 z-50 overflow-y-auto">
           <div className="bg-green-400 text-center  flex items-center justify-between text-white text-2xl p-4 font-bold ">
             <h1 className="text-center flex-auto "> RESERVATION COMPLETED</h1>
-            <button onClick={() => setBookingToast(false)}>
+            <button onClick={handleClose}>
               <AiOutlineClose />
             </button>
           </div>

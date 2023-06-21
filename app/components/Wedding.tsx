@@ -1,16 +1,17 @@
-import Link from "next/link";
-import React from "react";
-import { BsFillTelephoneFill } from "react-icons/bs";
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import { BsFillTelephoneFill } from 'react-icons/bs'
 
-function GetTouch() {
+const Wedding = () => {
   return (
     <section id="get-in-touch">
-      <div className="px-8 py-8 lg:py-20 lg:mt-16 bg-[url('/images/getintouch-banner-bg.png')] relative">
-        <div className="absolute inset-0 bg-lighter-black/80" />
+      <div className="px-8 py-8 lg:py-20 lg:mt-16 bg-[url('/images/wedding-bg.png')]  bg-cover  relative ">
+        <div className="absolute inset-0 bg-lighter-black/70" />
         <div className="z-30 relative text-center text-2xl font-bold flex flex-col gap-8 lg:flex-row lg:justify-center lg:text-4xl">
           <div>
             <h1 className="leading-tight text-white">
-              Book a car by getting in touch with us
+            Celebrate in Style, Book your Memorable Car Today!
             </h1>
           </div>
           <div>
@@ -26,8 +27,7 @@ function GetTouch() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>  )
 }
 
-export default GetTouch;
+export default Wedding

@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import { Footer } from "./components";
 
 export const metadata = {
   title: "Car Rental",
@@ -17,8 +18,12 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.className} bg-custom-white`}>
+
+
+
         {children}
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { navLink } from "../data/link";
+import { navLink } from "@/data/link";
 import { useTogglersContext } from "../context/togglers";
 import { usePathname } from "next/navigation";
 

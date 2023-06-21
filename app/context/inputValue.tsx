@@ -29,9 +29,9 @@ type InputValueContextType = {
 
 const InputValueContext = React.createContext<InputValueContextType>({
   bookingSelect: {
-    "car-type": "Audi A1 S-Line",
-    "pickup-location": "Bandung",
-    "dropof-location": "Bandung",
+    "car-type": "",
+    "pickup-location": "",
+    "dropof-location": "",
   },
   setBookingSelect: () => {},
   bookingDate: {
@@ -50,9 +50,9 @@ export const InputValueProvider = ({
   children: React.ReactNode;
 }) => {
   const [bookingSelect, setBookingSelect] = useState({
-    "car-type": "Audi A1 S-Line",
-    "pickup-location": "Bandung",
-    "dropof-location": "Bandung",
+    "car-type": "",
+    "pickup-location": "",
+    "dropof-location": "",
   });
   const [bookingDate, setBookingDate] = useState({
     "pickup-date": "",
@@ -61,14 +61,15 @@ export const InputValueProvider = ({
 
   function clearBookingInputs() {
     setBookingSelect({
-      "car-type": "Audi A1 S-Line",
-      "pickup-location": "Bandung",
-      "dropof-location": "Bandung",
+      "car-type": "",
+      "pickup-location": "",
+      "dropof-location": "",
     });
     setBookingDate({
       "pickup-date": "",
       "dropof-date": "",
     });
+    
   }
 
   return (

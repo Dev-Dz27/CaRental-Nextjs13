@@ -24,7 +24,7 @@ function Hero() {
         />
         <div className="space-y-8 text-center lg:text-left lg:max-w-lg">
           <div className="font-bold space-y-2">
-            <h3 className="text-xl">Plan your trip now</h3>
+          <h3 className="lg:text-xl text-lg">Plan your trip now</h3>
             <h1 className="text-[3.2rem] leading-tight">
               Save <span className="text-custom-orange">big</span> with our car
               rental

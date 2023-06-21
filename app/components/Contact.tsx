@@ -18,9 +18,10 @@ function Contact() {
             </div>
             <div>
               <p className="text-custom-grey">
-                A multifaceted professional skilled in multiple fields of
-                research, development as well as a learning specialist. Over 15
-                years of experience.
+                With over 15 years of experience in the car rental industry, we are
+                passionate about providing our customers with the best possible
+                rental car experience, and we are always looking for ways to
+                improve our services.
               </p>
             </div>
           </div>
@@ -56,7 +57,7 @@ function Contact() {
                   <span>
                     <IoLocationSharp />
                   </span>
-                  <span className="font-semibold">Bandung, Indonesia</span>
+                  <span className="font-semibold">Mostaganem, Algeria</span>
                 </a>
               </li>
             </ul>
@@ -70,7 +71,7 @@ function Contact() {
             </label>
             <input
               type="text"
-              placeholder='E.g: "Darrell Rafa"'
+              placeholder='E.g: "Ahmed Mounir"'
               className="bg-lighter-grey p-3 text-sm placeholder:text-custom-grey rounded w-full lg:py-4 lg:px-6"
               id="full-name"
             />

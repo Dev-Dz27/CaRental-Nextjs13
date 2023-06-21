@@ -1,32 +1,19 @@
 import React from "react";
-import { faq } from "../data/content";
+import { faq } from "@/data/content";
 import { useTogglersContext } from "../context/togglers";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 function Faq() {
   const { showAnswer, setShowAnswer } = useTogglersContext();
 
-  function getParams(id: number): { q1: boolean; q2: boolean; q3: boolean } {
-    switch (id) {
-      case 1:
-        return { q1: !showAnswer.q1, q2: false, q3: false };
-      case 2:
-        return { q1: false, q2: !showAnswer.q2, q3: false };
-      case 3:
-        return { q1: false, q2: false, q3: !showAnswer.q3 };
-    }
-    return { q1: false, q2: false, q3: false };
-  }
-
-  function getState(id: number) {
-    switch (id) {
-      case 1:
-        return showAnswer.q1;
-      case 2:
-        return showAnswer.q2;
-      case 3:
-        return showAnswer.q3;
-    }
+  function toggleAnswer(id) {
+    setShowAnswer((prevState) => {
+      const newState = { ...prevState };
+      Object.keys(newState).forEach((key) => {
+        newState[key] = key === `q${id}` ? !newState[key] : false;
+      });
+      return newState;
+    });
   }
 
   return (
@@ -51,25 +38,29 @@ function Faq() {
             <div className="shadow-faq-divider" key={data.id}>
               <button
                 className={`${
-                  getState(data.id)
+                  showAnswer[`q${data.id}`]
                     ? "bg-custom-orange text-white shadow-orange-bottom"
                     : ""
                 } text-left font-medium text-lg flex items-center justify-between p-6 w-full`}
-                onClick={() => setShowAnswer(getParams(data.id))}
+                onClick={() => toggleAnswer(data.id)}
               >
                 <span>
                   {data.id}. {data.question}
                 </span>
                 <span className="text-xl">
-                  {getState(data.id) ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                  {showAnswer[`q${data.id}`] ? (
+                    <IoIosArrowUp />
+                  ) : (
+                    <IoIosArrowDown />
+                  )}
                 </span>
               </button>
               <p
                 className={`${
-                  getState(data.id)
-                    ? "max-h-[30rem] lg:max-h-48 py-6"
+                  showAnswer[`q${data.id}`]
+                    ? "max-h-[30rem] lg:max-h-64 py-6 " 
                     : "max-h-0 py-0"
-                } text-left px-6 transiion-all duration-300 ease-linear overflow-hidden text-custom-grey leading-relaxed`}
+                } text-left px-6 transition-all duration-300 ease-linear overflow-hidden text-custom-grey leading-relaxed `}
               >
                 {data.answer}
               </p>

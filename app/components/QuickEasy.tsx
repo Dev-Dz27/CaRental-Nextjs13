@@ -1,5 +1,5 @@
 import React from "react";
-import { quickEasy } from "../data/content";
+import { quickEasy } from "@/data/content";
 import Image from "next/image";
 
 function QuickEasy() {

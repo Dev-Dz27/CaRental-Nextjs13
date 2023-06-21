@@ -1,5 +1,5 @@
 import React from "react";
-import { carDetails, cars } from "../data/content";
+import { carDetails, cars } from "@/data/content";
 import { useCurrentValueContext } from "../context/currentValue";
 import Image from "next/image";
 import { useTogglersContext } from "../context/togglers";

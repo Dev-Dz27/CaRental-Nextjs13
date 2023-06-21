@@ -3,15 +3,19 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useTogglersContext } from "../context/togglers";
-import { navLink } from "../data/link";
+import { navLink } from "@/data/link";
 import { usePathname } from "next/navigation";
 
 function Header() {
   const { setMobileNavbar } = useTogglersContext();
+  const isActive = (url) => usePathname() === url;
+  const getLinkClassName = (url) =>
+    `${isActive(url) ? "text-custom-orange" : ""} hover:text-custom-orange transition-all duration-300 ease-linear`;
+
 
   return (
       <header className="absolute top-6 inset-x-6 lg:inset-x-28 flex items-center justify-between z-50" id="top header">
-        <div>
+        <div >
           <Link href="/">
             <Image
               src="/images/logo.png"
@@ -28,9 +32,10 @@ function Header() {
               <li key={data.id}>
                 <Link
                   href={data.url}
-                  className={`${
-                    usePathname() === data.url ? "text-custom-orange" : ""
-                  } hover:text-custom-orange transition-all duration-300 ease-linear`}
+                  // className={`${
+                  //   usePathname() === data.url ? "text-custom-orange" : ""
+                  // } hover:text-custom-orange transition-all duration-300 ease-linear`}
+                  className={getLinkClassName(data.url)}
                   onClick={() => {
                     setMobileNavbar(false);
                   }}
@@ -41,14 +46,14 @@ function Header() {
             ))}
           </ul>
         </div>
-        <div className="hidden lg:flex items-center gap-4 font-medium">
+        {/* <div className="hidden lg:flex items-center gap-4 font-medium">
           <button className="hover:text-custom-orange transition-all duration-300 ease-linear">
             Sign In
           </button>
           <button className="bg-custom-orange py-3 px-7 text-white shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear rounded">
             Register
           </button>
-        </div>
+        </div> */}
         <div className="lg:hidden">
           <button
             className="text-3xl transition-all duration-300 ease-linear hover:text-custom-orange"

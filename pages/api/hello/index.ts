@@ -2,14 +2,18 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { google } from "googleapis";
 
 type SheetForm = {
+  DateNow: string;
   name: string;
   email: string;
   phone: number;
-  adresse: string;
-  job: string;
-  job2: string;
-  message: string;
-  DateNow: string;
+  age: number;
+  carType: string;
+  pickupDate: string;
+  pickupLocation: string;
+  dropOffDate: string;
+  dropOffLocation: string;
+  note: string;
+  babySeatChecked: boolean;
 };
 
 export default async function handler(
@@ -17,7 +21,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
-    return res.status(405).send({ message: "Only Post request are allowed" });
+    return res.status(405).send({ message: "Only Post requests are allowed" });
   }
 
   const body = req.body as SheetForm;
@@ -42,29 +46,33 @@ export default async function handler(
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "A1:G1",
+      range: "A1:M1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
           [
+            body.DateNow,
             body.name,
             body.email,
             body.phone,
-            body.adresse,
-            body.job,
-            body.job2,
-            body.message,
-            body.DateNow,
+            body.age,
+            body.carType,
+            body.pickupDate,
+            body.pickupLocation,
+            body.dropOffDate,
+            body.dropOffLocation,
+            body.note,
+            body.babySeatChecked,
           ],
         ],
       },
     });
 
-    return res.status(201).json({
+    return res.status(200).json({
       data: response.data,
     });
   } catch (e) {
     console.error(e);
-    return res.status(500).send({ message: "something went wrong" });
+    return res.status(500).send({ message: "Something went wrong" });
   }
 }

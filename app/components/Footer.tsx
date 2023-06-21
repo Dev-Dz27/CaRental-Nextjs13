@@ -6,7 +6,17 @@ import { GrMail } from "react-icons/gr";
 function Footer() {
   return (
     <section id="footer">
-      <div className="bg-white px-8 lg:px-28 py-16 text-center grid grid-cols-1 lg:grid-cols-4 lg:text-left gap-20">
+      <div className=" bg-white px-8 lg:px-28 py-4 text-center space-y-4 ">
+        <h1 className=" font-bold text-2xl leading-tight ">Find Us</h1>
+        <iframe
+          className="w-full h-80"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12789.915471395247!2d3.132243848135411!3d36.73507521954244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e527ddd9ec26d%3A0xb13a579be89a8406!2sDjamaa%20el%20Djaza%C3%AFr!5e0!3m2!1sen!2sdz!4v1687087071715!5m2!1sen!2sdz"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div className="bg-[#f8f8f8] px-8 lg:px-28 py-16 text-center grid grid-cols-1 lg:grid-cols-4 lg:text-left gap-20">
         <div className="space-y-6">
           <div className="space-y-4">
             <h1 className="font-bold text-2xl">CAR RENTAL</h1>
@@ -92,9 +102,9 @@ function Footer() {
             <h1 className="font-bold text-2xl">WORKING HOURS</h1>
           </div>
           <div className="space-y-2">
-            <p>Mon - Fri: 9:00AM - 9:00PM</p>
-            <p>Sat: 9:00AM - 19:00PM</p>
-            <p>Sun: Closed</p>
+            <p>Sat - Wed: 9:00AM - 9:00PM</p>
+            <p>Thu: 9:00AM - 5:00PM</p>
+            <p>Fri: Closed</p>
           </div>
         </div>
         <div className="space-y-6">
@@ -119,5 +129,4 @@ function Footer() {
     </section>
   );
 }
-
 export default Footer;

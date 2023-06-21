@@ -1,19 +1,21 @@
 "use client";
 
 import React from "react";
-import Header from "../components/Header";
-import MobileNavbar from "../components/MobileNavbar";
-import BannerHero from "../components/BannerHero";
-import ToTop from "../components/ToTop";
 import { TogglersProvider } from "../context/togglers";
-import Models from "../components/Models";
-import GetTouch from "../components/GetTouch";
-import Footer from "../components/Footer";
 import { InputValueProvider } from "../context/inputValue";
-import { CurrentValueProvider } from "../context/currentValue";
-import BookingModal from "../components/BookingModal";
+
+import  { Header,
+  BannerHero,
+ 
+
+  GetTouch,
+ } from '../components'
 import Booking from "../components/Booking";
+import BookingModal from "../components/BookingModal";
 import BookingToast from "../components/BookingToast";
+import MobileNavbar from "../components/MobileNavbar";
+import Models from "../components/Models";
+import ToTop from '../components/ToTop'
 
 function page() {
   return (
@@ -21,8 +23,11 @@ function page() {
             <InputValueProvider>
 
       <main>
-        <Header />
-        <MobileNavbar />
+      <Header />
+            <MobileNavbar />
+
+
+
         <BannerHero htmlId="models-hero" page="Vehicle Models" />
         <Booking />
         <BookingModal />
@@ -30,7 +35,6 @@ function page() {
         <ToTop />
         <Models />
         <GetTouch />
-        <Footer />
       </main>
             </InputValueProvider>
     </TogglersProvider>

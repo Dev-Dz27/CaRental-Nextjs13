@@ -1,5 +1,5 @@
 import React from "react";
-import { bookingInputs } from "../data/input";
+import { bookingInputs } from "@/data/input";
 import { AiFillCalendar } from "react-icons/ai";
 import { useInputValueContext } from "../context/inputValue";
 import { AiOutlineClose } from "react-icons/ai";
@@ -24,6 +24,26 @@ function Booking() {
         break;
     }
   }
+
+  // Test
+  function getCurrentDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    let month = (currentDate.getMonth() + 1).toString();
+    let day = currentDate.getDate().toString();
+
+    // Add leading zeros if month/day is a single digit
+    if (month.length === 1) {
+      month = "0" + month;
+    }
+    if (day.length === 1) {
+      day = "0" + day;
+    }
+
+    return `${year}-${month}-${day}`;
+  }
+
+  // Test
 
   return (
     <section
@@ -112,26 +132,27 @@ function Booking() {
                   ? bookingDate["pickup-date"]
                   : bookingDate["dropof-date"]
               }
+              min={getCurrentDate()} // Set the min attribute to the current date
             />
           </div>
         ))}
         <Link
           href="/models/#models-main"
           className="bg-custom-orange w-full text-center shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear text-white p-2  font-bold rounded "
-          onClick={() => {
-            setBookingFields({
-              ...bookingFields,
-              red:
-                bookingDate["pickup-date"] !== "" &&
-                bookingDate["dropof-date"] !== ""
-                  ? false
-                  : true,
-            });
-            bookingDate["pickup-date"] !== "" &&
-            bookingDate["dropof-date"] !== ""
-              ? setBookingModal(true)
-              : null;
-          }}
+          // onClick={() => {
+          //   setBookingFields({
+          //     ...bookingFields,
+          //     red:
+          //       bookingDate["pickup-date"] !== "" &&
+          //       bookingDate["dropof-date"] !== ""
+          //         ? false
+          //         : true,
+          //   });
+          //   bookingDate["pickup-date"] !== "" &&
+          //   bookingDate["dropof-date"] !== ""
+          //     ? setBookingModal(true)
+          //     : null;
+          // }}
         >
           Search
         </Link>

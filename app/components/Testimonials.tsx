@@ -42,7 +42,7 @@ function Testimonials() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Parry Hotter</h3>
-                  <p>Bandung</p>
+                  <p>Mostaganem</p>
                 </div>
               </div>
               <div className="hidden lg:block">
@@ -72,7 +72,7 @@ function Testimonials() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Noah Rizzly</h3>
-                  <p>Jakarta</p>
+                  <p>Djelfa</p>
                 </div>
               </div>
               <div className="hidden lg:block">

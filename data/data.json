@@ -1,0 +1,28 @@
+{
+    "navbar": {
+      "nav1": "home",
+      "nav2": "FAQ",
+      "nav3": "contact"
+    },
+    "form": {
+      "formation": "Suture",
+      "desc": "Le nombre des participants est limités.",
+      "professions": [
+        "",
+        "Médecin",
+        "Dentiste",
+        "Pharmacien(ne)",
+        "Biologiste",
+        "Biologiste",
+        "Etudiant(e) en paramédical",
+        "Autre"
+      ],
+      "Autre": "SI AUTRE PRÉCISEZ"
+    },
+    "coach": {
+      "heading": "Aymen Houari",
+      "img": "https://images.unsplash.com/photo-1534698435722-8d4dd3902268?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio incidunt ex, facere neque eum aliquid similique veniam sint eveniet unde exercitationem architecto commodi excepturi voluptate officiis laboriosam temporibus dolore blanditiis cum corrupti amet vero mollitia?"
+    }
+  }
+  

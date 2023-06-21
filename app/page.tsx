@@ -1,52 +1,54 @@
 "use client";
 
-import Header from "./components/Header";
-import MobileNavbar from "./components/MobileNavbar";
 import React from "react";
 import { TogglersProvider } from "./context/togglers";
-import Hero from "./components/Hero";
 import { InputValueProvider } from "./context/inputValue";
-import BookingModal from "./components/BookingModal";
-import QuickEasy from "./components/QuickEasy";
-import ToTop from "./components/ToTop";
-import RentalFleet from "./components/RentalFleet";
 import { CurrentValueProvider } from "./context/currentValue";
-import SaveBig from "./components/SaveBig";
-import ChooseUs from "./components/ChooseUs";
-import Testimonials from "./components/Testimonials";
-import Faq from "./components/Faq";
-import DownloadApp from "./components/DownloadApp";
-import Footer from "./components/Footer";
+import {
+  Hero,
+  QuickEasy,
+  RentalFleet,
+  SaveBig,
+  ChooseUs,
+  Testimonials,
+  Faq,
+  DownloadApp,
+  Header,
+  Wedding,
+} from "./components";
+import BookingModal from "./components/BookingModal";
 import BookingToast from "./components/BookingToast";
+import ToTop from "./components/ToTop";
+import MobileNavbar from "./components/MobileNavbar";
 
 function Home() {
   return (
     <div>
-
- 
-    <TogglersProvider>
-      <InputValueProvider>
-        <CurrentValueProvider>
-          <main>
+      <TogglersProvider>
+        <InputValueProvider>
+          <CurrentValueProvider>
+            <main>
             <Header />
             <MobileNavbar />
-            <Hero />
-            <ToTop />
-            <BookingModal  />
-            <BookingToast  />
-            <QuickEasy />
-            <RentalFleet />
-            <SaveBig />
-            <ChooseUs />
-            <Testimonials />
-            <Faq />
-            <DownloadApp />
-            <Footer />
-          </main>
-        </CurrentValueProvider>
-      </InputValueProvider>
-    </TogglersProvider>
- </div>
+
+
+              <Hero />
+              <ToTop />
+              <BookingModal />
+              <BookingToast />
+              <QuickEasy />
+              <RentalFleet />
+              <Wedding />
+              <ChooseUs />
+              <Testimonials />
+              <Faq />
+              <SaveBig />
+              {/* <DownloadApp /> */}
+            </main>
+          </CurrentValueProvider>
+        </InputValueProvider>
+      </TogglersProvider>
+    </div>
   );
 }
 

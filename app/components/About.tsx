@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { aboutGrid } from "../data/content";
+import { aboutGrid } from "@/data/content";
 
 function About() {
   return (
@@ -8,7 +8,7 @@ function About() {
       <div className="px-8 py-8 lg:px-60 lg:py-28 text-center lg:text-left grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 lg:items-center">
         <div>
           <Image
-            src="/images/about-main.jpg"
+            src="/images/about-main.png"
             alt="about"
             width={1000}
             height={1000}
@@ -25,11 +25,13 @@ function About() {
             </div>
             <div>
               <p className="text-custom-grey">
-                Certain but she but shyness why cottage. Guy the put instrument
-                sir entreaties affronting. Pretended exquisite see cordially the
-                you. Weeks quiet do vexed or whose. Motionless if no to
-                affronting imprudence no precaution. My indulged as disposal
-                strongly attended.
+                We provide exceptional car rental experiences. From luxurious
+                rides to reliable vehicles, our diverse fleet caters to your
+                needs. With personalized assistance, timely maintenance, and
+                round-the-clock support, we go above and beyond for customer
+                satisfaction. Experience convenience, excellence, and endless
+                possibilities. Contact us today and embark on memorable
+                adventures.
               </p>
             </div>
           </div>
@@ -44,7 +46,13 @@ function About() {
                   className="m-auto lg:m-0"
                 />
                 <div className="flex flex-col gap-4 lg:flex-row lg:gap-2 lg:items-center">
-                  <h1 className="font-bold text-5xl">{data.amount}</h1>
+                  <h1
+                    className="font-bold text-5xl
+            
+                   "
+                  >
+                    {data.amount}{" "}
+                  </h1>
                   <p className="text-custom-grey">{data.text}</p>
                 </div>
               </div>

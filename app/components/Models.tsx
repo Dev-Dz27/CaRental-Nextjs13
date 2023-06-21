@@ -1,12 +1,16 @@
-import React from "react";
-import { carDetails } from "../data/content";
+import React, { useState } from "react";
+import { carDetails } from "@/data/content";
 import Image from "next/image";
+import { useRouter } from 'next/navigation'
+
 import { AiFillCar, AiFillStar, AiFillTool } from "react-icons/ai";
+import { RiErrorWarningLine} from "react-icons/ri";
 import { GiCarDoor } from "react-icons/gi";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { useTogglersContext } from "../context/togglers";
 import { useInputValueContext } from "../context/inputValue";
 import { useCurrentValueContext } from "../context/currentValue";
+import Link from "next/link";
 
 function Models() {
   // Test
@@ -16,15 +20,31 @@ useInputValueContext();
 
 const { rentalFleet, setRentalFleet } = useCurrentValueContext();
 const carDetail = carDetails.find((data) => data.car === rentalFleet);
+const router = useRouter()
+const [showToast, setShowToast] = useState(false); // State variable for toast message
+
 
 const handleClick = (data) => {
-  setRentalFleet(data.car);
-  setBookingSelect({
-    ...bookingSelect,
-    "car-type": data.car,
-  });
-  setBookingModal(true);
+  if (bookingDate["pickup-date"] && bookingSelect["pickup-location"]) {
+    setRentalFleet(data.car);
+    setBookingSelect({
+      ...bookingSelect,
+      "car-type": data.car,
+    });
+    setBookingModal(true);
+  } else {
+    // Redirect to bookingDate inputs or show a message
+    // Add your logic here
+    setShowToast(true); // Hide the toast message after 5 seconds
+
+    setTimeout(() => {
+      setShowToast(false); // Hide the toast message after 5 seconds
+      setBookingModal(false);
+      router.push('/models/#booking')
+    }, 2000); // 5000 milliseconds = 5 seconds
+  }
 };
+
 
 // Test
   return (
@@ -73,7 +93,7 @@ const handleClick = (data) => {
                   </div>
                   <div className="text-right">
                     <h1 className="font-bold text-xl lg:text-2xl">
-                      ${data.price}
+                      £{data.price}
                     </h1>
                     <p className="text-custom-grey">per day</p>
                   </div>
@@ -110,6 +130,19 @@ const handleClick = (data) => {
                   <hr className="border border-lighter-grey" />
                 </div>
                 <div>
+                {showToast && (
+              <div className="flex flex-col justify-center  bg-custom-pink py-2 px-4 my-4 rounded text-center  font-normal">
+                <RiErrorWarningLine className="w-6 h-6 mx-auto "  />
+                  <p >
+                    Please provide a {" "}
+                    <Link href="/models/#booking" className="text-blue-950">
+
+                    pick-up location & Date 
+                    </Link>
+                    </p>
+                
+              </div>
+            )}
 
                               <button
                     className="block text-center bg-custom-orange p-3 font-bold text-white rounded shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear w-full"

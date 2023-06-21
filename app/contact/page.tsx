@@ -2,13 +2,14 @@
 
 import React from "react";
 import { TogglersProvider } from "../context/togglers";
-import Header from "../components/Header";
+import  { Header,
+  BannerHero,
+
+  Contact,
+  GetTouch,
+} from '../components'
 import MobileNavbar from "../components/MobileNavbar";
-import BannerHero from "../components/BannerHero";
-import ToTop from "../components/ToTop";
-import GetTouch from "../components/GetTouch";
-import Footer from "../components/Footer";
-import Contact from "../components/Contact";
+import ToTop from '../components/ToTop'
 
 function page() {
   return (
@@ -20,7 +21,6 @@ function page() {
         <ToTop />
         <Contact />
         <GetTouch />
-        <Footer />
       </main>
     </TogglersProvider>
   );
