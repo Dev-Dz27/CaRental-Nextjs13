@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import { Footer } from "./components";
 
 export const metadata = {
-  title: "Car Rental",
+  title: "Auto Rental",
   description:
     "An online platform that allows users to rent cars for personal or business use.",
 };
