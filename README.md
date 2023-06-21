@@ -1,4 +1,4 @@
-<div align='center'><img style="width:30%" src='/images/logo.png'/></div>
+<div align='center'><img style="width:30%" src='https://raw.githubusercontent.com/Dev-Dz27/CaRental-Nextjs13/main/public/images/logo.png'/></div>
 
 <h2>About the project</h2>
 
@@ -17,6 +17,6 @@
 <h3 align='center'>Home Page 🏡</h3>
 
 <div align='center'>
-<img src='/images/Webcapture_21-6-2023_214150_autorental.vercel.app.jpeg'/>
+<img src='https://raw.githubusercontent.com/Dev-Dz27/CaRental-Nextjs13/main/public/images/Webcapture_21-6-2023_214150_autorental.vercel.app.jpeg'/>
 
 </div>
