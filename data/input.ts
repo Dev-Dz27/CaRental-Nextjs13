@@ -27,8 +27,8 @@ export const bookingInputs = {
       options: [
         { id: 1, option: "" },
         { id: 2, option: "Mostaganem" },
-        { id: 3, option: "Oran" },
-        { id: 4, option: "Alger" },
+        { id: 3, option: "Oran Ahmed Ben Bella Airport" },
+        { id: 4, option: "Algiers Airport Houari Boumediene" },
         { id: 5, option: "Tlemcen" },
         { id: 6, option: "Constantine" },
         { id: 7, option: "Djelfa" },
@@ -42,8 +42,8 @@ export const bookingInputs = {
       options: [
         { id: 1, option: "" },
         { id: 2, option: "Mostaganem" },
-        { id: 3, option: "Oran" },
-        { id: 4, option: "Alger" },
+        { id: 3, option: "Oran Ahmed Ben Bella Airport" },
+        { id: 4, option: "Algiers Airport Houari Boumediene" },
         { id: 5, option: "Tlemcen" },
         { id: 6, option: "Constantine" },
         { id: 7, option: "Djelfa" },
