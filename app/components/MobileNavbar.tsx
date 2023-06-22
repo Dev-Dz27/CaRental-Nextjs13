@@ -22,6 +22,7 @@ function MobileNavbar() {
         <button
           className="text-3xl absolute top-10 right-10 hover:text-custom-orange transition-all duration-300 ease-linear"
           onClick={() => setMobileNavbar(false)}
+          aria-label="Toggle Mobile Navigation"
         >
           <AiOutlineClose />
         </button>

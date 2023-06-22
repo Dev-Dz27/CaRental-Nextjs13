@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { carDetails } from "@/data/content";
 import Image from "next/image";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 import { AiFillCar, AiFillStar, AiFillTool } from "react-icons/ai";
-import { RiErrorWarningLine} from "react-icons/ri";
+import { RiErrorWarningLine } from "react-icons/ri";
 import { GiCarDoor } from "react-icons/gi";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { useTogglersContext } from "../context/togglers";
@@ -14,39 +14,37 @@ import Link from "next/link";
 
 function Models() {
   // Test
-const { setBookingModal,  } = useTogglersContext();
-const { bookingSelect, setBookingSelect, bookingDate, setBookingDate } =
-useInputValueContext();
+  const { setBookingModal } = useTogglersContext();
+  const { bookingSelect, setBookingSelect, bookingDate, setBookingDate } =
+    useInputValueContext();
 
-const { rentalFleet, setRentalFleet } = useCurrentValueContext();
-const carDetail = carDetails.find((data) => data.car === rentalFleet);
-const router = useRouter()
-const [showToast, setShowToast] = useState(false); // State variable for toast message
+  const { rentalFleet, setRentalFleet } = useCurrentValueContext();
+  const carDetail = carDetails.find((data) => data.car === rentalFleet);
+  const router = useRouter();
+  const [showToast, setShowToast] = useState(false); // State variable for toast message
 
+  const handleClick = (data) => {
+    if (bookingDate["pickup-date"] && bookingSelect["pickup-location"]) {
+      setRentalFleet(data.car);
+      setBookingSelect({
+        ...bookingSelect,
+        "car-type": data.car,
+      });
+      setBookingModal(true);
+    } else {
+      // Redirect to bookingDate inputs or show a message
+      // Add your logic here
+      setShowToast(true); // Hide the toast message after 5 seconds
 
-const handleClick = (data) => {
-  if (bookingDate["pickup-date"] && bookingSelect["pickup-location"]) {
-    setRentalFleet(data.car);
-    setBookingSelect({
-      ...bookingSelect,
-      "car-type": data.car,
-    });
-    setBookingModal(true);
-  } else {
-    // Redirect to bookingDate inputs or show a message
-    // Add your logic here
-    setShowToast(true); // Hide the toast message after 5 seconds
+      setTimeout(() => {
+        setShowToast(false); // Hide the toast message after 5 seconds
+        setBookingModal(false);
+        router.push("/models/#booking");
+      }, 2000); // 5000 milliseconds = 5 seconds
+    }
+  };
 
-    setTimeout(() => {
-      setShowToast(false); // Hide the toast message after 5 seconds
-      setBookingModal(false);
-      router.push('/models/#booking')
-    }, 2000); // 5000 milliseconds = 5 seconds
-  }
-};
-
-
-// Test
+  // Test
   return (
     <section id="models-main">
       <div className="py-8 px-8 lg:px-48 lg:py-16 my-8">
@@ -130,28 +128,29 @@ const handleClick = (data) => {
                   <hr className="border border-lighter-grey" />
                 </div>
                 <div>
-                {showToast && (
-              <div className="flex flex-col justify-center  bg-custom-pink py-2 px-4 my-4 rounded text-center  font-normal">
-                <RiErrorWarningLine className="w-6 h-6 mx-auto "  />
-                  <p >
-                    Please provide a {" "}
-                    <Link href="/models/#booking" className="text-blue-950">
+                  {showToast && (
+                    <div className="flex flex-col justify-center  bg-custom-pink py-2 px-4 my-4 rounded text-center  font-normal">
+                      <RiErrorWarningLine className="w-6 h-6 mx-auto " />
+                      <p>
+                        Please provide a{" "}
+                        <Link
+                          href="/models/#booking"
+                          className="text-blue-950"
+                          aria-label="redirect to booking inputs"
+                        >
+                          pick-up location & Date
+                        </Link>
+                      </p>
+                    </div>
+                  )}
 
-                    pick-up location & Date 
-                    </Link>
-                    </p>
-                
-              </div>
-            )}
-
-                              <button
+                  <button
                     className="block text-center bg-custom-orange p-3 font-bold text-white rounded shadow-orange-bottom hover:shadow-orange-bottom-hov transition-all duration-300 ease-linear w-full"
-
-              onClick={() => handleClick(data)}
-            >
-              Reserve Now
-              {/* Book Ride */}
-            </button>
+                    onClick={() => handleClick(data)}
+                  >
+                    Reserve Now
+                    {/* Book Ride */}
+                  </button>
                 </div>
               </div>
             </div>
