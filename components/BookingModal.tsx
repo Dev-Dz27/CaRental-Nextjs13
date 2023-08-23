@@ -5,8 +5,8 @@ import {
   AiFillCalendar,
 } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
-import { useTogglersContext } from "../context/togglers";
-import { useInputValueContext } from "../context/inputValue";
+import { useTogglersContext } from "@/context/togglers";
+import { useInputValueContext } from "@/context/inputValue";
 import Image from "next/image";
 import { bookingInputs, personalInfo } from "@/data/input";
 import moment from "moment";

@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { TogglersProvider } from "./context/togglers";
-import { InputValueProvider } from "./context/inputValue";
-import { CurrentValueProvider } from "./context/currentValue";
+import { TogglersProvider } from "@/context/togglers";
+import { InputValueProvider } from "@/context/inputValue";
+import { CurrentValueProvider } from "@/context/currentValue";
 import {
   Hero,
   QuickEasy,
@@ -15,11 +15,12 @@ import {
   DownloadApp,
   Header,
   Wedding,
-} from "./components";
-import BookingModal from "./components/BookingModal";
-import BookingToast from "./components/BookingToast";
-import ToTop from "./components/ToTop";
-import MobileNavbar from "./components/MobileNavbar";
+} from "@/components";
+import BookingModal from "@/components/BookingModal";
+import BookingToast from "@/components/BookingToast";
+import ToTop from "@/components/ToTop";
+import MobileNavbar from "@/components/MobileNavbar";
+import FacebookMsg from "@/components/FacebookMsg";
 
 function Home() {
   return (
@@ -28,9 +29,8 @@ function Home() {
         <InputValueProvider>
           <CurrentValueProvider>
             <main>
-            <Header />
-            <MobileNavbar />
-
+              <Header />
+              <MobileNavbar />
 
               <Hero />
               <ToTop />
@@ -44,6 +44,8 @@ function Home() {
               <Faq />
               <SaveBig />
               {/* <DownloadApp /> */}
+              <FacebookMsg />
+
             </main>
           </CurrentValueProvider>
         </InputValueProvider>

@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from "react";
-import {
-  AiFillInfoCircle,
-  AiOutlineClose,
-} from "react-icons/ai";
-import { useTogglersContext } from "../context/togglers";
-import { useInputValueContext } from "../context/inputValue";
+import { AiFillInfoCircle, AiOutlineClose } from "react-icons/ai";
+import { useTogglersContext } from "@/context/togglers";
+import { useInputValueContext } from "@/context/inputValue";
 import Image from "next/image";
 
 function BookingToast() {
-  const { bookingToast, setBookingToast,  } =
-    useTogglersContext();
-  const { bookingSelect, clearBookingInputs} =
-    useInputValueContext();
+  const { bookingToast, setBookingToast } = useTogglersContext();
+  const { bookingSelect, clearBookingInputs } = useInputValueContext();
 
-    function handleClose() {
-      setBookingToast(false)
-      clearBookingInputs()
-    }
+  function handleClose() {
+    setBookingToast(false);
+    clearBookingInputs();
+  }
 
   // Test
-  
 
   // Test
 
   useEffect(() => {
     document.body.style.overflowY = bookingToast ? "hidden" : "auto";
   }, [bookingToast]);
-
 
   if (!bookingToast) return null;
 
@@ -40,7 +33,7 @@ function BookingToast() {
               <AiOutlineClose />
             </button>
           </div>
-          
+
           <div className="bg-green-100 p-4 space-y-4">
             <div className="text-green-500 flex items-center  gap-2">
               <span className="text-2xl">
@@ -63,7 +56,7 @@ function BookingToast() {
               <div className="space-y-4">
                 <div>
                   <h3 className="font-bold text-lg text-slate-800">
-                    The {" "}
+                    The{" "}
                     <span className="text-green-500">
                       {bookingSelect["car-type"]}
                     </span>{" "}

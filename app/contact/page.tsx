@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
-import { TogglersProvider } from "../context/togglers";
-import  { Header,
-  BannerHero,
-
-  Contact,
-  GetTouch,
-} from '../components'
-import MobileNavbar from "../components/MobileNavbar";
-import ToTop from '../components/ToTop'
+import { TogglersProvider } from "@/context/togglers";
+import { Header, BannerHero, Contact, GetTouch } from "@/components";
+import MobileNavbar from "@/components/MobileNavbar";
+import ToTop from "@/components/ToTop";
 
 function page() {
   return (

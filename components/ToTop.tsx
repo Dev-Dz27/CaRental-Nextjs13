@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useTogglersContext } from "../context/togglers";
+import { useTogglersContext } from "@/context/togglers";
 import { IoIosArrowUp } from "react-icons/io";
 
 function ScrollTop() {

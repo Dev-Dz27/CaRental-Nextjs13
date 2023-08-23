@@ -7,9 +7,9 @@ import { AiFillCar, AiFillStar, AiFillTool } from "react-icons/ai";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { GiCarDoor } from "react-icons/gi";
 import { BsFillFuelPumpFill } from "react-icons/bs";
-import { useTogglersContext } from "../context/togglers";
-import { useInputValueContext } from "../context/inputValue";
-import { useCurrentValueContext } from "../context/currentValue";
+import { useTogglersContext } from "@/context/togglers";
+import { useInputValueContext } from "@/context/inputValue";
+import { useCurrentValueContext } from "@/context/currentValue";
 import Link from "next/link";
 
 function Models() {

@@ -1,6 +1,6 @@
 import React from "react";
 import { faq } from "@/data/content";
-import { useTogglersContext } from "../context/togglers";
+import { useTogglersContext } from "@/context/togglers";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 function Faq() {
@@ -58,7 +58,7 @@ function Faq() {
               <p
                 className={`${
                   showAnswer[`q${data.id}`]
-                    ? "max-h-[30rem] lg:max-h-64 py-6 " 
+                    ? "max-h-[30rem] lg:max-h-64 py-6 "
                     : "max-h-0 py-0"
                 } text-left px-6 transition-all duration-300 ease-linear overflow-hidden text-custom-grey leading-relaxed `}
               >

@@ -1,24 +1,22 @@
 import React from "react";
 import { carDetails, cars } from "@/data/content";
-import { useCurrentValueContext } from "../context/currentValue";
+import { useCurrentValueContext } from "@/context/currentValue";
 import Image from "next/image";
-import { useTogglersContext } from "../context/togglers";
-import {  useInputValueContext } from "../context/inputValue";
-
+import { useTogglersContext } from "@/context/togglers";
+import { useInputValueContext } from "@/context/inputValue";
 
 function RentalFleet() {
-// Test
-const { setBookingModal,  } = useTogglersContext();
-const { bookingSelect, setBookingSelect, bookingDate, setBookingDate } =
-useInputValueContext();
-// Test
-  
+  // Test
+  const { setBookingModal } = useTogglersContext();
+  const { bookingSelect, setBookingSelect, bookingDate, setBookingDate } =
+    useInputValueContext();
+  // Test
+
   const { rentalFleet, setRentalFleet } = useCurrentValueContext();
 
   const carDetail = carDetails.find((data) => data.car === rentalFleet);
 
   if (!carDetail) return null;
-
 
   return (
     <section
@@ -132,7 +130,7 @@ useInputValueContext();
               onClick={() => {
                 setBookingSelect({
                   ...bookingSelect,
-                  "car-type": rentalFleet
+                  "car-type": rentalFleet,
                 });
                 setBookingModal(true);
               }}

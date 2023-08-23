@@ -1,9 +1,10 @@
+"use client";
 import React from "react";
 import { bookingInputs } from "@/data/input";
 import { AiFillCalendar } from "react-icons/ai";
-import { useInputValueContext } from "../context/inputValue";
+import { useInputValueContext } from "@/context/inputValue";
 import { AiOutlineClose } from "react-icons/ai";
-import { useTogglersContext } from "../context/togglers";
+import { useTogglersContext } from "@/context/togglers";
 import Link from "next/link";
 
 function Booking() {
